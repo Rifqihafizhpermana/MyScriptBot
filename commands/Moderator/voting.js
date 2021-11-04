@@ -15,7 +15,6 @@ module.exports = {
     run: async (client, message, args) => {
         if (message.author.bot) return;
         let getMsg = message.content.split(" ").slice(1).join(" ");
-        message.delete();
 
         if (!getMsg) return message.reply("**Please enter a message to vote**");
 
@@ -34,5 +33,6 @@ module.exports = {
             msg.react('<:emoji_4:905224649204461679>')
         });
 
+        message.delete()
     },
 };
