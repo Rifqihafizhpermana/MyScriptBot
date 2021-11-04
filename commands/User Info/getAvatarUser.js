@@ -22,7 +22,7 @@ module.exports = {
             .setColor('RANDOM')
             .setDescription(`Avatar ${getTarget.user.tag}`)        
             .setFooter(`Request By ${message.author.tag}`)
-            .setImage(`${getTarget.user.avatar}`)
+            .setImage(`${getTarget.displayAvatarURL({ size: 2048 })}`)
             .setTimestamp()
             .setTitle(`Get Avatar User ${getTarget.user.tag}`)
         message.reply({ embeds: [msgEmbed] });
