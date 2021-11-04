@@ -14,12 +14,12 @@ const CurrencySystem = require("currency-system");
 const cs = new CurrencySystem;
 cs.setMongoURL(client.config.mongooseConnectionString);
 cs.setDefaultWalletAmount('100');
-cs.setDefaultBankAmount('1000');
+cs.setDefaultBankAmount('0');
 
-cs.setMaxBankAmount('50000000');
-cs.setMaxWalletAmount('500000');
+cs.setMaxBankAmount('5000000');
+cs.setMaxWalletAmount('10000000');
 cs.searchForNewUpdate(true)
-cs.setDefaultBankLimitForUser('50000')
+cs.setDefaultBankLimitForUser('5000000')
 
 // Initializing the project
 require("./handler")(client);

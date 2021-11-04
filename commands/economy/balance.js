@@ -27,7 +27,7 @@ module.exports = {
 
         let result = await cs.balance({
             user: user,
-            guild: message.guild
+            guild: {id :null}
         });
 
         const msgEmbed = new MessageEmbed()
