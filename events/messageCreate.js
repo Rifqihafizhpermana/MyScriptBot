@@ -1,12 +1,14 @@
 const Discord = require("discord.js");
 const client = require("../index");
 const cooldowns = new Map()
-const { owner } = require('../config.json')
+const { owner, commandsLogs } = require('../config.json')
 
 client.on("messageCreate", async (message) => {
     if (message.author.id === owner) {
         message.react('<:ownzex_king:905234453247447112>')
     }
+
+    const getChannelCommandLogs = client.channels.cache.get(commandsLogs);
 
     if (
         message.author.bot ||
@@ -23,6 +25,8 @@ client.on("messageCreate", async (message) => {
     const command = client.commands.get(cmd.toLowerCase()) || client.commands.find(c => c.aliases?.includes(cmd.toLowerCase()));
     const getCommand = client.commands.get(cmd.toLowerCase());
 
+
+    if (!command) return;
     if (command) {
         if (!cooldowns.has(command.name)) {
             cooldowns.set(command.name, new Discord.Collection())
@@ -69,8 +73,20 @@ client.on("messageCreate", async (message) => {
         if (!message.guild.me.permissions.has(command.BotPerms || [])) return message.reply({ embeds: [bpEmbed] })   
     }
 
-    if (!command) return;
-    await command.run(client, message, args);
+	try {
+		command.run(client, message, args);
+	}
+	catch (error) {
+        message.channel.send('Something went wrong!');        
+		console.log(error);
+	} finally {
+		console.log(`\x1b[31m[${message.author.tag}]: \x1b[37mUsing command \x1b[31m${client.config.prefix}${command.name}\x1b[0m`)
+        getChannelCommandLogs.send(`\`Discord '${message.guild.name}', User ${message.author.tag} Using Command '${client.config.prefix}${command.name}'\``)
+	}
+
+    // await command.run(client, message, args);
+
+    // message.guild.channels.cache.get()
 
     // if (message.author.id === owner) {
     //     message.react('<:emoji_3:905222293049978911>')
