@@ -80,8 +80,16 @@ client.on("messageCreate", async (message) => {
         message.channel.send('Something went wrong!');        
 		console.log(error);
 	} finally {
-		console.log(`\x1b[31m[${message.author.tag}]: \x1b[37mUsing command \x1b[31m${client.config.prefix}${command.name}\x1b[0m`)
-        getChannelCommandLogs.send(`\`Discord '${message.guild.name}', User ${message.author.tag} Using Command '${client.config.prefix}${command.name}'\``)
+		console.log(`\x1b[37mUser \x1b[31m${message.author.tag}: \x1b[37mHas Using command \x1b[31m${client.config.prefix}${command.name}\x1b[0m`)
+
+        const msgEmbed = new Discord.MessageEmbed()
+            .setColor('RED')
+            .setTitle('Command Used Logs')
+            .setDescription(`User \`${message.author.tag}\` Has Using Command \`${client.config.prefix}${command.name}\``)
+            .setTimestamp()
+            .setFooter(`On Discord ${message.guild.name}`)
+
+        getChannelCommandLogs.send({ embeds: [msgEmbed] });
 	}
 
     // await command.run(client, message, args);
