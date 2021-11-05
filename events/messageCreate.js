@@ -70,7 +70,7 @@ client.on("messageCreate", async (message) => {
 
         if (!message.guild.me.permissions.has(["SEND_MESSAGES", "EMBED_LINKS"])) return message.member.send({ embeds: [momsgEmbed] })
         if (!message.member.permissions.has(command.UserPerms || [])) return message.reply({ embeds: [upEmbed] })
-        if (!message.guild.me.permissions.has(command.BotPerms || [])) return message.reply({ embeds: [bpEmbed] })   
+        if (!message.guild.me.permissions.has(command.BotPerms || [])) return message.reply({ embeds: [bpEmbed] })
     }
 
 	try {
