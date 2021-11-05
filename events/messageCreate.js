@@ -74,10 +74,9 @@ client.on("messageCreate", async (message) => {
     }
 
 	try {
-		command.run(client, message, args);
+		await command.run(client, message, args);
 	}
-	catch (error) {
-        message.channel.send('Something went wrong!');        
+	catch (error) {       
 		console.log(error);
 	} finally {
 		console.log(`\x1b[37mUser \x1b[31m${message.author.tag}: \x1b[37mHas Using command \x1b[31m${client.config.prefix}${command.name}\x1b[0m`)
