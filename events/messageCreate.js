@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const client = require("../index");
 const cooldowns = new Map()
-const { owner, commandsLogs } = require('../config.json')
+const { owner, commandsLogs } = require('../commands/config.json')
 
 client.on("messageCreate", async (message) => {
     if (message.author.id === owner) {

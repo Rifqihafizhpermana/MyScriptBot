@@ -1,5 +1,5 @@
 const client = require('../index');
-const { idGuild, joinLogChannel, anounceChannel } = require('../config.json');
+const { idGuild, joinLogChannel, anounceChannel } = require('../commands/config.json');
 const Discord = require('discord.js');
 
 client.on("guildMemberAdd", async (message) => {

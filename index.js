@@ -8,7 +8,7 @@ module.exports = client;
 // Global Variables
 client.commands = new Collection();
 client.slashCommands = new Collection();
-client.config = require("./config.json");
+client.config = require("./commands/config.json");
 
 const CurrencySystem = require("currency-system");
 const cs = new CurrencySystem;

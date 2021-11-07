@@ -51,7 +51,7 @@ module.exports = async (client) => {
     });
 
     // mongoose
-    const { mongooseConnectionString } = require('../config.json')
+    const { mongooseConnectionString } = require('../commands/config.json')
     if (!mongooseConnectionString) return;
 
     mongoose.connect(mongooseConnectionString).then(() => console.log('\x1b[31m[MONGOOSE]: \x1b[37mConnected to mongodb\x1b[0m'));
