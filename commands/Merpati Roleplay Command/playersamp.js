@@ -1,5 +1,6 @@
 const { Message, Client, MessageEmbed } = require("discord.js");
 const fetch = require("node-fetch");
+const merpatiDiscord = '778250646998351892'
 
 module.exports = {
     name: "merpatiplayerinfo",
