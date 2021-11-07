@@ -5,6 +5,7 @@ const ms = require("ms");
 module.exports = {
     name: "unbanneduser",
     aliases: ['unbanuser', 'unbuser'],
+    description: "Unban a member of this guild",
     UserPerms: ["BAN_MEMBERS"],
     BotPerms: ["BAN_MEMBERS"],
     cooldown: 10,    

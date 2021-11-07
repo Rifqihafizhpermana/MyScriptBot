@@ -11,6 +11,7 @@ const ms = require("ms")
 module.exports = {
     name: "banneduser",
     aliases: ['banuser', 'buser'],
+    description: "Ban a member from this guild",
     UserPerms: ["BAN_MEMBERS"],
     BotPerms: ["BAN_MEMBERS"],
     cooldown: 10,    

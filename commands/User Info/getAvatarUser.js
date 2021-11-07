@@ -3,6 +3,7 @@ const { Message, Client, MessageEmbed } = require("discord.js");
 module.exports = {
     name: "getavatar",
     aliases: ['getav', 'av'],
+    description: "Get an avatar of a member",
     UserPerms: [""],
     BotPerms: [""],
     cooldown: 5,   

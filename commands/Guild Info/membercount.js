@@ -3,6 +3,7 @@ const { Message, Client, MessageEmbed } = require("discord.js");
 module.exports = {
     name: "membercount",
     aliases: ['mc'],
+    description: "Showing the number of members in this Guild",
     UserPerms: [""],
     BotPerms: [""],
     cooldown: 5,    

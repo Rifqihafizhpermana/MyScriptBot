@@ -4,6 +4,7 @@ const fetch = require('node-fetch')
 module.exports = {
     name: "sampserver",
     aliases: ['samp'],
+    description: "This command is in trouble",
     UserPerms: [""],
     BotPerms: [""],
     cooldown: 1,    

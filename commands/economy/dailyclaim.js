@@ -4,6 +4,7 @@ const cs = new CurrencySystem;
 
 module.exports = {
     name: "dailyclaim",
+    description: "Take your daily prize",
     aliases: ['claimd'],
     UserPerms: [""],
     BotPerms: [""],

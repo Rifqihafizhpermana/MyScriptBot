@@ -5,6 +5,7 @@ const cs = new CurrencySystem;
 module.exports = {
     name: "balance",
     aliases: ['bal'],
+    description: "Show your zexcash",
     UserPerms: ["ADMINISTRATOR"],
     BotPerms: [""],
     cooldown: 5,    

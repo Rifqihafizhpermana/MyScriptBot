@@ -5,6 +5,7 @@ const ms = require("ms");
 module.exports = {
     name: "kickuser",
     aliases: ['kick', 'kuser'],
+    description: "Kick a member of this guild",
     UserPerms: ["KICK_MEMBERS"],
     BotPerms: ["KICK_MEMBERS"],
     cooldown: 10,

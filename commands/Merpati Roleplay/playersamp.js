@@ -4,6 +4,7 @@ const fetch = require("node-fetch");
 module.exports = {
     name: "merpatiplayerinfo",
     aliases: ['playerinfo'],
+    description: "Shows the number of active players on the Merpati Roleplay server",
     UserPerms: [""],
     BotPerms: [""],
     cooldown: 5,    

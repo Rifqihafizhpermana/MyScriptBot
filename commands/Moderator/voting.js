@@ -3,6 +3,7 @@ const { Message, Client, MessageEmbed } = require("discord.js");
 module.exports = {
     name: "voting",
     aliases: ['vt'],
+    description: "Make a voting",
     UserPerms: ["ADMINISTRATOR"],
     BotPerms: ["ADMINISTRATOR"],
     cooldown: 30,    

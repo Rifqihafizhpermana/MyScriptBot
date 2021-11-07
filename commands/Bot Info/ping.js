@@ -3,6 +3,7 @@ const { Message, Client } = require("discord.js");
 module.exports = {
     name: "ping",
     aliases: [''],
+    description: "Show a ping bot",
     UserPerms: [""],
     BotPerms: [""],
     cooldown: 0,    

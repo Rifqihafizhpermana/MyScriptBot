@@ -4,6 +4,7 @@ const Discord = require('discord.js')
 module.exports = {
     name: "uptime",
     aliases: ['ut'],
+    description: "Show a uptime bot",
     UserPerms: [""],
     BotPerms: [""],
     cooldown: 1,    

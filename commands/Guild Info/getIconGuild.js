@@ -3,6 +3,7 @@ const { Message, Client, MessageEmbed } = require("discord.js");
 module.exports = {
     name: "geticondiscord",
     aliases: ['geticon', 'gi'],
+    description: "Get Icon Guild Discord",
     UserPerms: [""],
     BotPerms: [""],
     cooldown: 5,    
