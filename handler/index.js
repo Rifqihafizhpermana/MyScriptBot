@@ -43,11 +43,11 @@ module.exports = async (client) => {
     client.on("ready", async () => {
         // Register for a single guild
         await client.guilds.cache
-            .get("778250646998351892")
+            .get("894962576662859806")
             .commands.set(arrayOfSlashCommands);
 
         // Register for all the guilds the bot is in
-        // await client.application.commands.set(arrayOfSlashCommands);
+        //await client.application.commands.set(arrayOfSlashCommands);
     });
 
     // mongoose
