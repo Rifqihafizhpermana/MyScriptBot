@@ -32,7 +32,6 @@ module.exports = {
             .setFooter(`Request By ${message.author.tag}`)
             .setTimestamp()
 
-
         let upEmbed = new Discord.MessageEmbed()
             .setColor("RED")
             .setDescription(`✅ - My uptime is \`${days}\` days, \`${hours}\` hours, \`${minutes}\` minutes, \`${seconds}\` seconds\n ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}`)

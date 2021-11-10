@@ -15,24 +15,49 @@ module.exports = {
      * @param {String[]} args
      */
     run: async (client, message, args) => {
-        const getIP = args.slice(0).join( );
-        const getPORT = args.slice(1).join( );
+        const getIP = args[0]
+        const getPORT = args[1]
 
-        if(!getIP) return message.reply('Masukkan ip server samp');
-        if(!getPORT) return message.reply('Masukkan port server samp');
+        if(!getIP) return message.reply('Masukkan ip server samp "oz!sampserver \`<IP>\` <PORT>"');
+        if(!getPORT) return message.reply('Masukkan port server samp "oz!sampserver <IP> \`<PORT>\`"');
 
-        fetch(`http://anabelle.bot.nu/api/sampquery?ip=${getIP}&port=${getPORT}`)
-            .then((res) => res.json())
-                .then((data) => {
-                    let api = data.response
-                    let getStatusServer = data.response.hostname
+        const response = await fetch(`http://anabelle.bot.nu/api/sampquery?ip=${getIP}&port=${getPORT}`)
+        const data = await response.json();
+        const api = await data.response
 
-                    if (!getStatusServer) {
-                        message.reply(`Server Offline`)
-                    } else {
-                        message.reply(`${api.hostname}`)
-                    }
-                })
+        console.log(api)
+
+        if (!api.hostname) {
+            message.reply(`Server offline`)
+        } else {
+            const msgEmbed = new MessageEmbed()
+                .setAuthor('OWNZEX BOT', 'http://34.126.184.54/image/ppownzex.png')
+                .setColor('YELLOW')       
+                .setFields(
+                    { name: 'Gamemode', value: `${api.gamemode}` },
+                    { name: 'Player Online', value: `${api.isPlayerOnline}/${api.maxplayers}` },
+                    { name: 'Language', value: `${api.language}` },
+                    { name: 'Website Server', value: `${api.rule.weburl}` },
+                    { name: 'Server Versions', value: `${api.rule.version}` },
+                )
+                .setFooter(`${api.hostname} - Status Server`)
+                .setTimestamp()
+                .setTitle(`${api.hostname} - Status Server`)    
+            message.reply({ embeds: [msgEmbed] });
+        }
+
+        // fetch(`http://anabelle.bot.nu/api/sampquery?ip=${getIP}&port=${getPORT}`)
+        //     .then((res) => res.json())
+        //         .then((data) => {
+        //             let api = data.response
+        //             let getStatusServer = data.response.hostname
+
+        //             if (!getStatusServer) {
+        //                 message.reply(`Server Offline`)
+        //             } else {
+        //                 message.reply(`${api.hostname}`)
+        //             }
+        //         })
 
     },
 };
