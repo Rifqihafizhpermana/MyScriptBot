@@ -1,7 +1,7 @@
 const { Client, CommandInteraction, MessageEmbed } = require("discord.js");
 
 module.exports = {
-    name: "setnick",
+    name: "register",
     description: "Enrolled in this guild",
     options: [
     {

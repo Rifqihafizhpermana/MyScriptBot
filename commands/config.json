@@ -7,5 +7,7 @@
     "joinLogChannel": "903948059107540992",
     "leaveLogChannel": "903948097112121365",
     "anounceChannel": "904134349165842443",
-    "commandsLogs": "906090619447959573"
+    "commandsLogs": "906090619447959573",
+    "roleAdd": "900401452093153311",
+    "apiServer": "http://anabelle.bot.nu/api/sampquery?ip=merpati-rp.online&port=7777"
 }

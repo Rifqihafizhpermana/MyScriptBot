@@ -1,5 +1,6 @@
 const { Message, Client, MessageEmbed } = require("discord.js");
 const fetch = require('node-fetch');
+const { apiServer } = require('../config.json')
 
 module.exports = {
     name: "merpatiserverinfo",
@@ -21,7 +22,7 @@ module.exports = {
         // if(!getIP) return message.reply('Masukkan ip server samp');
         // if(!getPORT) return message.reply('Masukkan port server samp');
 
-        fetch(`http://anabelle.bot.nu/api/sampquery?ip=20.205.170.145&port=7777`)
+        fetch(apiServer)
             .then((res) => res.json())
                 .then((data) => {
                     let api = data.response

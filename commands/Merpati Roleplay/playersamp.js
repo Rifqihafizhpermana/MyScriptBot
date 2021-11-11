@@ -1,6 +1,7 @@
 const { Message, Client, MessageEmbed } = require("discord.js");
 const fetch = require("node-fetch");
 const merpatiDiscord = '778250646998351892'
+const { apiServer } = require('../config.json')
 
 module.exports = {
     name: "merpatiplayerinfo",
@@ -16,7 +17,7 @@ module.exports = {
      * @param {String[]} args
      */
     run: async (client, message, args) => {
-        fetch(`http://anabelle.bot.nu/api/sampquery?ip=20.205.170.145&port=7777`)
+        fetch(apiServer)
         .then((res) => res.json())
             .then((data) => {
                 let api = data.response
