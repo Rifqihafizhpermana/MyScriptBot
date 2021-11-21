@@ -15,24 +15,24 @@ module.exports = {
      * @param {String[]} args
      */
     run: async (client, message, args) => {
-        if (message.member.permissions.has(["ADMINISTRATOR"])) {
-            const msgPerms = new MessageEmbed().setColor('RED').setTitle(`❌ - Can't set up`).addFields({ name: "I can't set you up, Because you have administrator rights", value: "Saya tidak bisa mengatur Anda, karena Anda memiliki hak administrator" })
-            return message.reply({ embeds: [msgPerms] }).then(msg => {
-                setTimeout(() => msg.delete(), 5000)
-            })
-        } 
+        // if (message.member.permissions.has(["ADMINISTRATOR"])) {
+        //     const msgPerms = new MessageEmbed().setColor('RED').setTitle(`❌ - Can't set up`).addFields({ name: "I can't set you up, Because you have administrator rights", value: "Saya tidak bisa mengatur Anda, karena Anda memiliki hak administrator" })
+        //     return message.reply({ embeds: [msgPerms] }).then(msg => {
+        //         setTimeout(() => msg.delete(), 5000)
+        //     })
+        // } 
 
         if (message.guild.id != "778250646998351892") {
             const msgGuild = new MessageEmbed().setColor('RED').setTitle(`❌ - Command is not running`).addFields({ name: "This command is not available for this guild.", value: "Perintahnya ini tidak tersedia untuk guild ini." })
             return message.reply({ embeds: [msgGuild] }).then(msg => {
-                setTimeout(() => msg.delete(), 5000)
+                setTimeout(() => msg.delete(), 20000)
             })
         }
 
         if (message.channel.id != "895508044220354590") {
             const msgGuild = new MessageEmbed().setColor('RED').setTitle(`❌ - This channel is not for this command`).addFields({ name: "You can't use this command on this channel.", value: "Anda tidak dapat menggunakan perintah ini di channel ini." })
             return message.reply({ embeds: [msgGuild] }).then(msg => {
-                setTimeout(() => msg.delete(), 5000)
+                setTimeout(() => msg.delete(), 20000)
             })
         }
 
@@ -44,21 +44,21 @@ module.exports = {
         if (!getNick.length) {
             const msgGuild = new MessageEmbed().setColor('RED').setTitle(`❌ - Register Error`).addFields({ name: "Please fill in your name first, Example: Naufal_Akbar.", value: "Silakan isi nama ic Anda terlebih dahulu, Contoh: Naufal_Akbar." })
             return message.reply({ embeds: [msgGuild] }).then(msg => {
-                setTimeout(() => msg.delete(), 5000)
+                setTimeout(() => msg.delete(), 20000)
             })
         }
 
         if (getNick.length > 20) {
             const msgGuild = new MessageEmbed().setColor('RED').setTitle(`❌ - Register Error`).addFields({ name: "Your name cannot be more than 20 characters.", value: "Nama Anda tidak boleh lebih dari 20 karakter." })
             return message.reply({ embeds: [msgGuild] }).then(msg => {
-                setTimeout(() => msg.delete(), 5000)
+                setTimeout(() => msg.delete(), 20000)
             })
         }        
 
         if (getNick.includes("_") === false) {
             const msgGuild = new MessageEmbed().setColor('RED').setTitle(`❌ - Register Error`).addFields({ name: "Must use sign \"_\"", value: "Harus menggunakan tanda \"_\"." })
             return message.reply({ embeds: [msgGuild] }).then(msg => {
-                setTimeout(() => msg.delete(), 5000)
+                setTimeout(() => msg.delete(), 20000)
             })
         } 
 
@@ -67,19 +67,24 @@ module.exports = {
         // if (getNick.includes("_") === true) return message.reply('cannot use a sign "_"')
 
         try {
-            message.member.roles.add(roleAdd);
-            message.member.setNickname(`${getNick}`);
+            if (!message.member.permissions.has(["ADMINISTRATOR"])){
+                message.member.roles.add(roleAdd);
+                message.member.setNickname(`${getNick}`);
 
-            const msgDone = new MessageEmbed()
-                .setAuthor('OWNZEX BOT', 'http://34.126.184.54/image/ppownzex.png')
-                .setColor('GREEN')
-                .setDescription(`**ACCEPTED**, Selamat kamu telah berhasil terdaftar di server ini, Nama kamu telah dirubah menjadi **${getNick}**`)        
-                .setFooter(`Registered ${message.author.tag} Aceppted`)
-                .setTimestamp()
-                .setTitle(`Register System`)
-                    
-            message.reply({ embeds: [msgDone] })
-
+                const msgDone = new MessageEmbed()
+                    .setAuthor('OWNZEX BOT', 'http://34.126.184.54/image/ppownzex.png')
+                    .setColor('GREEN')
+                    .setDescription(`**ACCEPTED**, Selamat kamu telah berhasil terdaftar di server ini, Nama kamu telah dirubah menjadi **${getNick}**`)        
+                    .setFooter(`Registered ${message.author.tag} Aceppted`)
+                    .setTimestamp()
+                    .setTitle(`Register System`)
+                message.reply({ embeds: [msgDone] })
+            } else {
+                const msgPerms = new MessageEmbed().setColor('RED').setTitle(`❌ - Can't set up`).addFields({ name: "I can't set you up, Because you have administrator rights", value: "Saya tidak bisa mengatur Anda, karena Anda memiliki hak administrator" })
+                return message.reply({ embeds: [msgPerms] }).then(msg => {
+                    setTimeout(() => msg.delete(), 40000)
+                })
+            }
             //message.channel.send(`**ACCEPTED**, Kamu telah berhasil registrasi di discord ini, Selamat BeRoleplay`);
         } catch (err) {
             console.log(err)

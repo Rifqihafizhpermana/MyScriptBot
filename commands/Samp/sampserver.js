@@ -25,8 +25,6 @@ module.exports = {
         const data = await response.json();
         const api = await data.response
 
-        console.log(api)
-
         if (!api.hostname) {
             message.reply(`Server offline`)
         } else {
