@@ -1,7 +1,7 @@
 const { Message, Client } = require("discord.js");
 const Discord = require('discord.js')
-var os = require('os-utils')
-const osSystem = os.platform()
+const os = require('os')
+
 
 module.exports = {
     name: "uptime",
@@ -27,7 +27,7 @@ module.exports = {
             .setColor('RED')      
             .addField(
                 '📋 My Uptime:',
-                `⌛ \`${days}\` **Day**, \`${hours}\` **Hours**, \`${minutes}\` **Minute**, \`${seconds}\` **Second Uptime**\n💊 Memory Usage \`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}\`**MB**\n💻 Operations System ${osSystem}`
+                `⌛ \`${days}\` **Day**, \`${hours}\` **Hours**, \`${minutes}\` **Minute**, \`${seconds}\` **Second Uptime**\n💊 Memory Usage \`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}\` **MB**\n💻 Operations System ${os.type()}`
             )
             .setFooter(`Request By ${message.author.tag}`)
             .setTimestamp()

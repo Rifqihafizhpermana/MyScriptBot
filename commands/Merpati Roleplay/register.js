@@ -29,7 +29,7 @@ module.exports = {
             })
         }
 
-        if (message.channel.id != "896263021926694932") {
+        if (message.channel.id != "895508044220354590") {
             const msgGuild = new MessageEmbed().setColor('RED').setTitle(`❌ - This channel is not for this command`).addFields({ name: "You can't use this command on this channel.", value: "Anda tidak dapat menggunakan perintah ini di channel ini." })
             return message.reply({ embeds: [msgGuild] }).then(msg => {
                 setTimeout(() => msg.delete(), 5000)
@@ -42,7 +42,7 @@ module.exports = {
         const getNick = args.join(' ');
 
         if (!getNick.length) {
-            const msgGuild = new MessageEmbed().setColor('RED').setTitle(`❌ - Register Error`).addFields({ name: "Please fill in your name first, Example: NaufalAkbar.", value: "Silakan isi nama ic Anda terlebih dahulu, Contoh: NaufalAkbar." })
+            const msgGuild = new MessageEmbed().setColor('RED').setTitle(`❌ - Register Error`).addFields({ name: "Please fill in your name first, Example: Naufal_Akbar.", value: "Silakan isi nama ic Anda terlebih dahulu, Contoh: Naufal_Akbar." })
             return message.reply({ embeds: [msgGuild] }).then(msg => {
                 setTimeout(() => msg.delete(), 5000)
             })
@@ -55,8 +55,8 @@ module.exports = {
             })
         }        
 
-        if (getNick.includes("_") === true) {
-            const msgGuild = new MessageEmbed().setColor('RED').setTitle(`❌ - Register Error`).addFields({ name: "Cannot use a sign \"_\"", value: "Tidak dapat menggunakan tanda \"_\"." })
+        if (getNick.includes("_") === false) {
+            const msgGuild = new MessageEmbed().setColor('RED').setTitle(`❌ - Register Error`).addFields({ name: "Must use sign \"_\"", value: "Harus menggunakan tanda \"_\"." })
             return message.reply({ embeds: [msgGuild] }).then(msg => {
                 setTimeout(() => msg.delete(), 5000)
             })
@@ -78,9 +78,7 @@ module.exports = {
                 .setTimestamp()
                 .setTitle(`Register System`)
                     
-            message.reply({ embeds: [msgDone] }).then(msg => {
-                setTimeout(() => msg.delete(), 5000)
-            })
+            message.reply({ embeds: [msgDone] })
 
             //message.channel.send(`**ACCEPTED**, Kamu telah berhasil registrasi di discord ini, Selamat BeRoleplay`);
         } catch (err) {

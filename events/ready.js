@@ -14,22 +14,15 @@ client.on("ready", () => {
 
     client.user.setStatus('idle');
 
-    fetch(`http://anabelle.bot.nu/api/sampquery?ip=20.205.170.145&port=7777`)
-    .then((res) => res.json())
-    .then((data) => {
-        let api = data.response
-
-        const statusBot = [
-            `OWNZEX BOTZ`,
-            `${client.users.cache.size} Pengguna`,
-            `${client.guilds.cache.size} Server Discord`,
-            `Player Online ${api.isPlayerOnline}/${api.maxplayers}`
-        ]    
+    const statusBot = [
+        `OWNZEX BOTZ`,
+        `${client.users.cache.size} Pengguna`,
+        `${client.guilds.cache.size} Server Discord`,
+    ]    
         
-        setInterval(() => {
-            client.user.setActivity(statusBot[Math.floor(Math.random() * statusBot.length)], {type: "WATCHING"})
-        }, 5000)        
-    })
+    setInterval(() => {
+        client.user.setActivity(statusBot[Math.floor(Math.random() * statusBot.length)], {type: "WATCHING"})
+    }, 5000)        
 
     // const statusBot = [
     //     `OWNZEX BOTZ`,

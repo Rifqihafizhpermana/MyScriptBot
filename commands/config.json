@@ -1,6 +1,6 @@
 {
     "owner": "804527728203923470",
-    "token": "ODg1NzU3OTE3MjU5NzYzNzgz.YTrsWA._1SqCjThvQyJKuxws7wCS-F9QEQ",
+    "token": "ODg1NzU3OTE3MjU5NzYzNzgz.YTrsWA.CY9xVaxk7Ufb8ZiJgvFAyhG6LIQ",
     "prefix": "oz!",
     "mongooseConnectionString": "mongodb+srv://botownzex:RYq7xtipJL93xLP5@economyownzexdiscord.8bmbj.mongodb.net/test",
     "idGuild": "894962576662859806",
@@ -8,6 +8,6 @@
     "leaveLogChannel": "903948097112121365",
     "anounceChannel": "904134349165842443",
     "commandsLogs": "906090619447959573",
-    "roleAdd": "900401452093153311",
+    "roleAdd": "778250646998351895",
     "apiServer": "http://anabelle.bot.nu/api/sampquery?ip=merpati-rp.online&port=7777"
 }
